@@ -4,13 +4,13 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 body {
-  background: #1a1a1a;
+  background: #0d0d0d;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  color: white;
 }
 
 /* ===== OS ROOT ===== */
@@ -41,7 +41,7 @@ body {
 }
 
 .splash-title {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: bold;
   text-align: center;
 }
@@ -50,6 +50,20 @@ body {
   margin-top: 10px;
   text-align: center;
   opacity: 0.7;
+  font-size: 18px;
+}
+
+.splash-engine {
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 4s linear infinite;
+  background-size: 300%;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% }
+  100% { background-position: 100% }
 }
 
 .splash-beta {
@@ -79,7 +93,7 @@ body {
 }
 
 .black-title {
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -109,7 +123,7 @@ body {
 }
 
 .standby-text {
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   padding: 20px;
 }
@@ -118,50 +132,59 @@ body {
 #desktop {
   position: absolute;
   inset: 0;
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 35px;
   align-content: flex-start;
+  justify-content: center;
 }
 
 .icon {
-  width: 70px;
-  text-align: center;
+  width: 90px;
+  height: 90px;
+  font-size: 55px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.icon-image {
-  font-size: 40px;
-}
-
-.icon-label {
-  margin-top: 5px;
-  font-size: 14px;
-  color: white;
+.icon:hover {
+  transform: scale(1.1);
 }
 
 /* ===== DOCK ===== */
 #dock {
   position: fixed;
-  bottom: 20px;
+  bottom: 110px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(30, 30, 30, 0.8);
-  padding: 10px 20px;
-  border-radius: 20px;
+  background: rgba(30, 30, 30, 0.7);
+  padding: 14px 26px;
+  border-radius: 26px;
   display: flex;
-  gap: 15px;
-  z-index: 50;
-  backdrop-filter: blur(10px);
+  gap: 28px;
+  z-index: 300;
+  backdrop-filter: blur(12px);
 }
 
 .dock-item {
   background: none;
   border: none;
-  color: white;
-  font-size: 16px;
+  font-size: 48px;
   cursor: pointer;
+  color: white;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+.dock-item:hover {
+  transform: scale(1.15);
 }
 
 /* ===== TASKBAR ===== */
@@ -169,19 +192,19 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 40px;
+  height: 42px;
   width: 100%;
   background: #111;
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  z-index: 60;
+  padding: 0 12px;
+  z-index: 350;
 }
 
 #start-button {
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 #taskbar-apps {
@@ -192,8 +215,8 @@ body {
 
 .taskbar-item {
   background: #222;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
   color: white;
   cursor: pointer;
 }
@@ -210,16 +233,16 @@ body {
 /* ===== START MENU ===== */
 #start-menu {
   position: fixed;
-  bottom: 40px;
-  left: 10px;
-  width: 220px;
+  bottom: 42px;
+  left: 12px;
+  width: 230px;
   background: #222;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 12px;
   display: none;
   flex-direction: column;
-  gap: 10px;
-  z-index: 70;
+  gap: 12px;
+  z-index: 400;
 }
 
 #start-menu.open {
@@ -228,45 +251,25 @@ body {
 
 .start-title {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
 .start-apps {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .start-app {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   background: #333;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   color: white;
-  font-size: 20px;
+  font-size: 28px;
   cursor: pointer;
-}
-
-.start-power-section {
-  margin-top: 10px;
-}
-
-.start-power-title {
-  color: white;
-  margin-bottom: 5px;
-}
-
-.start-power {
-  width: 100%;
-  background: #333;
-  border: none;
-  padding: 8px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-  text-align: left;
 }
 
 /* ===== WINDOWS ===== */
@@ -274,12 +277,12 @@ body {
   position: absolute;
   width: 380px;
   height: 300px;
-  background: #222;
+  background: #1a1a1a;
   border: 1px solid #444;
-  border-radius: 6px;
+  border-radius: 10px;
   display: none;
   flex-direction: column;
-  z-index: 10;
+  z-index: 500;
   color: white;
 }
 
@@ -289,7 +292,7 @@ body {
 
 .window.fullscreen {
   width: 100vw !important;
-  height: calc(100vh - 40px) !important;
+  height: calc(100vh - 42px) !important;
   top: 0 !important;
   left: 0 !important;
   border-radius: 0 !important;
@@ -297,24 +300,26 @@ body {
 
 .window-titlebar {
   background: #333;
-  padding: 6px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: grab;
+  border-radius: 10px 10px 0 0;
 }
 
 .window-buttons button {
   background: none;
   border: none;
   color: white;
-  margin-left: 5px;
+  margin-left: 6px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .window-content {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   overflow: auto;
 }
 
@@ -332,11 +337,11 @@ body {
 /* Browser */
 .browser-url {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
   background: #111;
   color: white;
   border: none;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* File Manager */
@@ -346,46 +351,47 @@ body {
 }
 
 .fm-sidebar {
-  width: 100px;
+  width: 110px;
   background: #111;
-  padding: 10px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .fm-nav-item {
   background: #222;
   border: none;
-  padding: 8px;
+  padding: 10px;
   color: white;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .fm-main {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
 }
 
 .fm-list {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 /* Music */
 .music-info {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
 }
 
 .music-cover {
-  font-size: 40px;
+  font-size: 48px;
 }
 
 .music-controls {
   margin-top: 20px;
   display: flex;
-  gap: 20px;
+  gap: 22px;
   justify-content: center;
 }
 
@@ -393,7 +399,7 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -424,12 +430,12 @@ body {
   overflow-y: auto;
   white-space: pre-wrap;
   font-family: monospace;
-  padding: 5px;
+  padding: 6px;
 }
 
 .terminal-input-row {
   display: flex;
-  padding: 5px;
+  padding: 6px;
   background: #111;
 }
 
@@ -438,11 +444,6 @@ body {
   background: #000;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 6px;
   font-family: monospace;
-}
-
-/* About */
-.about {
-  color: white;
 }
