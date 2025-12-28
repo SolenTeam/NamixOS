@@ -206,7 +206,7 @@ body {
   width: 8px;
   height: 8px;
   transform: translateX(-50%);
-  background: #2ecc71; /* verde */
+  background: #2ecc71;
   border-radius: 50%;
 }
 
@@ -540,8 +540,8 @@ body {
   position: absolute;
   display: none;
   flex-direction: column;
-  gap: 6px;
-  padding: 10px;
+  gap: 4px;
+  padding: 8px;
   border-radius: 12px;
 
   background: rgba(20, 20, 20, 0.8);
@@ -553,7 +553,7 @@ body {
     0 0 10px rgba(0, 255, 255, 0.15),
     inset 0 0 6px rgba(255, 0, 255, 0.15);
 
-  animation: fadeIn 0.15s ease;
+  animation: ctxFadeIn 0.15s ease;
   z-index: 9999;
 }
 
@@ -561,18 +561,28 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
-  padding: 8px;
+  font-size: 14px;
+  padding: 6px 8px;
   cursor: pointer;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctx-icon {
+  font-size: 16px;
+}
+
+.ctx-text {
+  font-size: 14px;
 }
 
 .ctx-btn:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
+@keyframes ctxFadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
 }
@@ -587,5 +597,9 @@ body {
   #desktop {
     padding: 20px;
     gap: 25px;
+  }
+
+  #dock {
+    bottom: 70px;
   }
 }
